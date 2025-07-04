@@ -42,17 +42,17 @@ const Quiz = ({ setSeeResult, qList, setScore, resetQuiz }) => {
   };
 
   return (
-    <div className="relative flex text-center flex-col shadow-[0_0_20px_rgba(99,102,241,0.8)] bg-indigo-100 mx-auto px-3 py-6 md:px-10 md:py-8 mt-10 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
-      <h1 className="text-5xl md:text-7xl tracking-tight mb-5 text-gradient">
+    <div className="relative flex text-center flex-col shadow-[0_0_20px_rgba(99,102,241,0.8)] bg-indigo-100 mx-auto px-3 py-6 md:px-10 md:py-8 mt-4 lg:mt-10 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
+      <h1 className="text-5xl mt-[-15px] md:text-7xl tracking-tight mb-3 text-gradient">
         QUIZz<span className="text-[2rem] md:text-5xl">z</span>
       </h1>
       <button onClick={resetQuiz} className="x-btn">
         X
       </button>
       <hr className="h-0.5 bg-black border-0 rounded-2xl" />
-      <h2 className="font-bold mt-5 text-3xl tracking-tight">Question {currentQuestion + 1}</h2>
+      <h2 className="font-bold mt-3 text-3xl tracking-tight">Question {currentQuestion + 1}</h2>
 
-      <h3 className="mt-3 text-2xl tracking-tight">{qList[currentQuestion].question}</h3>
+      <h3 className="mt-3 text-lg lg:text-2xl tracking-tight">{qList[currentQuestion].question}</h3>
       <ul className="flex flex-col gap-3 mt-5">
         {qList[currentQuestion].alternatives.map((alternative, index) => (
           <li key={alternative + index}>
@@ -65,11 +65,11 @@ const Quiz = ({ setSeeResult, qList, setScore, resetQuiz }) => {
           </li>
         ))}
       </ul>
-      <p className="mt-5 text-[calc(1rem+0.5vw)] lg:text-2xl">
+      <p className="mt-3 text-[calc(1rem+0.5vw)] lg:text-2xl">
         Your answer: <br /> <span className="font-bold">{answers[currentQuestion] || "-"}</span>{" "}
       </p>
 
-      <div className="flex justify-between mt-auto pt-8">
+      <div className="flex justify-between mt-auto pt-5">
         <button
           onClick={handlePrevious}
           className="button text-[calc(1rem+0.5vw)] lg:text-2xl if-disabled"

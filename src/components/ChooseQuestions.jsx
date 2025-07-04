@@ -53,8 +53,8 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi
   }, [question, alt1, alt2, answer]);
 
   return (
-    <div className="relative flex text-center flex-col bg-indigo-100 shadow-[0_0_20px_rgba(99,102,241,0.8)] mx-auto px-3 py-6 md:px-10 md:py-8 mt-10 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
-      <h1 className="text-5xl md:text-7xl tracking-tight mb-5 text-gradient">
+    <div className="relative flex text-center flex-col bg-indigo-100 shadow-[0_0_20px_rgba(99,102,241,0.8)] mx-auto px-3 py-6 md:px-10 md:py-8 mt-4 md:mt-10 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
+      <h1 className="text-5xl mt-[-15px] md:text-7xl tracking-tight mb-3 text-gradient">
         QUIZz<span className="text-[2rem] md:text-5xl">z</span>
       </h1>
       <button
@@ -69,13 +69,13 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi
       <hr className="h-0.5 bg-black border-0 rounded-2xl" />
       {!isDone && (
         <>
-          <h3 className="font-bold text-3xl md:text-4xl tracking-tight my-6">Add Questions:</h3>
+          <h3 className="font-bold text-2xl md:text-4xl tracking-tight my-3">Add Questions:</h3>
           <div className="flex flex-col">
             <p className="error-msg">{errorMsg?.question || ""}</p>
             <textarea
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
-              className="input-f"
+              className="input-f mb-2 lg:mb-3"
               id="question"
               placeholder="*Question or statement..."
             ></textarea>
@@ -83,7 +83,7 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi
             <input
               value={alt1}
               onChange={(e) => setAlt1(e.target.value)}
-              className="input-f"
+              className="input-f mb-1 lg:mb-3"
               type="text"
               id="alternative1"
               placeholder="*Alternative 1..."
@@ -92,7 +92,7 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi
             <input
               value={alt2}
               onChange={(e) => setAlt2(e.target.value)}
-              className="input-f"
+              className="input-f mb-1 lg:mb-3"
               type="text"
               id="alternative2"
               placeholder="*Alternative 2..."
@@ -101,7 +101,7 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi
             <input
               value={alt3}
               onChange={(e) => setAlt3(e.target.value)}
-              className="input-f"
+              className="input-f mb-2 lg:mb-3"
               type="text"
               id="alternative3"
               placeholder="Alternative 3... (optional)"
@@ -110,12 +110,14 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi
             <input
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              className="input-f"
+              className="input-f mb-3"
               type="text"
               id="answer"
               placeholder="*Correct answer..."
             />
-            <p className="text-[calc(0.9rem+0.5vw)] md:text-lg">Created Questions: {numOfQuestions}</p>
+            <p className="text-[calc(0.9rem+0.5vw)] md:mt-5 md:text-xl">
+              Created Questions: {numOfQuestions}
+            </p>
           </div>
         </>
       )}
@@ -138,7 +140,7 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi
       : <>
           <button
             onClick={handleAddQuestion}
-            className="button mt-10 md:text-2xl if-disabled"
+            className="button mt-3 md:mt-10 md:text-2xl if-disabled"
             disabled={!isValid}
           >
             + Add Question

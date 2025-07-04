@@ -2,7 +2,7 @@
 
 html {
   /* background-color: rgb(16, 10, 52); */
-  min-height: 100vh;
+  min-height: 100dvh;
   background-image: url("./assets/images/diamond-sunset.svg");
   /* background-image: url("./assets/images/bullseye-gradient.svg"); */
   background-repeat: no-repeat;
@@ -18,7 +18,7 @@ html {
 }
 
 @utility button {
-  @apply border-2 border-transparent font-bold py-3 px-6 bg-indigo-500 rounded-2xl cursor-pointer hover:bg-indigo-400 transition duration-200;
+  @apply border-2 border-transparent font-bold py-1.5 px-6 bg-indigo-500 rounded-2xl cursor-pointer hover:bg-indigo-400 transition duration-200;
 }
 
 @utility x-btn {
