@@ -1,7 +1,9 @@
 const QuizResult = ({ setSeeResult, score, resetQuiz }) => {
   return (
     <div className="flex text-center flex-col bg-indigo-100 shadow-[0_0_20px_rgba(99,102,241,0.8)] mx-auto px-3 py-6 md:px-10 md:py-8 mt-10 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
-      <h1 className="text-5xl lg:text-7xl tracking-tight mt-4 lg:mt-10  text-gradient">RESULT</h1>
+      <h1 className="text-5xl mt-[-15px] md:mt-0 md:text-7xl tracking-tight mb-3 md:mb-7 text-gradient">
+        RESULT
+      </h1>
       <hr className="h-0.5 bg-black border-0 rounded-2xl" />
       <h3 className="font-bold mt-5 text-3xl md:text-4xl tracking-tight">
         Score:{" "}

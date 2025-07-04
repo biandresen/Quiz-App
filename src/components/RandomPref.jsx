@@ -19,7 +19,7 @@ const RandomPref = ({ setQuestionsType, setQuestionsApi }) => {
     <div className="mt-5 text-start bg-indigo-200 p-5 rounded-xl">
       <h2 className="text-[calc(1rem+0.5vw)] md:text-2xl font-bold text-center">RANDOM SETTINGS</h2>
       <div className="flex flex-col mt-8">
-        <label className="font-bold" htmlFor="quantity">
+        <label className="font-bold md:text-xl" htmlFor="quantity">
           Number of questions (0-50)
         </label>
         <input
@@ -31,7 +31,7 @@ const RandomPref = ({ setQuestionsType, setQuestionsApi }) => {
           onChange={(e) => setQuantity(e.target.value)}
           value={quantity}
         />
-        <label className="font-bold mt-[-5px]" htmlFor="category">
+        <label className="font-bold mt-[-5px] md:mt-2 md:text-xl" htmlFor="category">
           Category
         </label>
         <select
@@ -64,7 +64,7 @@ const RandomPref = ({ setQuestionsType, setQuestionsApi }) => {
         </select>
         <button
           onClick={handlePref}
-          className="button mt-3 text-[calc(1rem+0.5vw)] md:text-2xl animate-bounce"
+          className="button mt-3 md:mt-10 text-[calc(1rem+0.5vw)] md:text-2xl animate-bounce"
         >
           Start Random Quiz
         </button>
