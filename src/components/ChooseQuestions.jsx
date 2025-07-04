@@ -51,12 +51,9 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType }) => {
   }, [question, alt1, alt2, answer]);
 
   return (
-    <div className="relative flex text-center flex-col bg-indigo-100 shadow-[0_0_20px_rgba(99,102,241,0.8)] mx-auto px-3 py-6 md:px-10 md:py-8 mt-20 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
+    <div className="relative flex text-center flex-col bg-indigo-100 shadow-[0_0_20px_rgba(99,102,241,0.8)] mx-auto px-3 py-6 md:px-10 md:py-8 mt-10 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
       <h1 className="text-5xl lg:text-7xl tracking-tight mb-5 text-gradient">QUIZ</h1>
-      <button
-        onClick={() => setIsDone(true)}
-        className="button bg-transparent py-0.5 px-2 absolute top-1 right-1"
-      >
+      <button onClick={() => setIsDone(true)} className="x-btn">
         X
       </button>
       <hr className="h-0.5 bg-black border-0 rounded-2xl" />

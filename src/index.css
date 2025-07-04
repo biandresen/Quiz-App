@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
-body {
-  background-color: rgb(16, 10, 52);
+html {
+  /* background-color: rgb(16, 10, 52); */
+  min-height: 100vh;
+  background-image: url("./assets/images/diamond-sunset.svg");
 }
 
 @layer components {
@@ -13,6 +15,10 @@ body {
 
 @utility button {
   @apply border-2 border-transparent font-bold py-3 px-6 bg-indigo-500 rounded-2xl cursor-pointer hover:bg-indigo-400 transition duration-200;
+}
+
+@utility x-btn {
+  @apply button bg-transparent py-0.5 px-2.5 rounded-full absolute top-1 right-1 text-[calc(1rem+0.5vw)] lg:text-2xl;
 }
 
 @utility if-disabled {
