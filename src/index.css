@@ -19,6 +19,14 @@ body {
   @apply disabled:bg-gray-300 disabled:cursor-not-allowed;
 }
 
+@utility error-msg {
+  @apply text-start mb-[-3px] text-indigo-600 text-[calc(0.7rem+0.5vw)] md:text-lg font-bold;
+}
+
+@utility input-f {
+  @apply text-[calc(0.9rem+0.5vw)] md:text-xl bg-indigo-300 rounded-lg mt-1 mb-5 py-1 px-2;
+}
+
 .wrong-list li:nth-child(even),
 .correct-list li:nth-child(even) {
   background-color: gray; /* Tailwind's gray-200 */

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Quiz = ({ setSeeResult, qList, setScore }) => {
+const Quiz = ({ setSeeResult, qList, setScore, resetQuiz }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
 
@@ -42,8 +42,11 @@ const Quiz = ({ setSeeResult, qList, setScore }) => {
   };
 
   return (
-    <div className="flex text-center flex-col shadow-[0_0_20px_rgba(99,102,241,0.8)] bg-indigo-100 mx-auto px-3 py-6 md:px-10 md:py-8 mt-20 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
-      <h1 className="text-5xl tracking-tight mb-5 text-gradient">QUIZ</h1>
+    <div className="relative flex text-center flex-col shadow-[0_0_20px_rgba(99,102,241,0.8)] bg-indigo-100 mx-auto px-3 py-6 md:px-10 md:py-8 mt-20 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
+      <h1 className="text-5xl lg:text-7xl  tracking-tight mb-5 text-gradient">QUIZ</h1>
+      <button onClick={resetQuiz} className="button bg-transparent py-0.5 px-2 absolute top-1 right-1">
+        X
+      </button>
       <hr className="h-0.5 bg-black border-0 rounded-2xl" />
       <h2 className="font-bold mt-5 text-3xl tracking-tight">Question {currentQuestion + 1}</h2>
 
@@ -53,7 +56,7 @@ const Quiz = ({ setSeeResult, qList, setScore }) => {
           <li key={alternative + index}>
             <button
               onClick={() => handleAnswer(alternative)}
-              className={`button w-full ${alternative === answers[currentQuestion] ? "bg-indigo-400 border-2 border-indigo-900" : ""}`}
+              className={`button text-[calc(1rem+0.5vw)] lg:text-2xl w-full ${alternative === answers[currentQuestion] ? "bg-indigo-400 border-2 border-indigo-900" : ""}`}
             >
               {alternative}
             </button>
@@ -65,7 +68,11 @@ const Quiz = ({ setSeeResult, qList, setScore }) => {
       </p>
 
       <div className="flex justify-between mt-auto pt-8">
-        <button onClick={handlePrevious} className="button if-disabled" disabled={currentQuestion === 0}>
+        <button
+          onClick={handlePrevious}
+          className="button text-[calc(1rem+0.5vw)] lg:text-2xl if-disabled"
+          disabled={currentQuestion === 0}
+        >
           Previous
         </button>
 
@@ -79,7 +86,7 @@ const Quiz = ({ setSeeResult, qList, setScore }) => {
           </button>
         : <button
             onClick={handleNext}
-            className="button if-disabled"
+            className="button text-[calc(1rem+0.5vw)] lg:text-2xl if-disabled"
             disabled={currentQuestion === qList.length - 1 || !answers[currentQuestion]}
           >
             Next
