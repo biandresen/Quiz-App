@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+body {
+  background-color: rgb(16, 10, 52);
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent font-bold;
+    background-image: linear-gradient(theme("colors.indigo.500"), theme("colors.indigo.800"));
+  }
+}
+
+@utility button {
+  @apply border-2 border-transparent font-bold py-3 px-6 bg-indigo-500 rounded-2xl cursor-pointer hover:bg-indigo-400 transition duration-200;
+}
+
+@utility if-disabled {
+  @apply disabled:bg-gray-300 disabled:cursor-not-allowed;
+}
+
+.wrong-list li:nth-child(even),
+.correct-list li:nth-child(even) {
+  background-color: gray; /* Tailwind's gray-200 */
+}
