@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import RandomPref from "./RandomPref";
 
-const ChooseQuestions = ({ setCustomQuestions, setQuestionsType }) => {
+const ChooseQuestions = ({ setCustomQuestions, setQuestionsType, setQuestionsApi }) => {
+  const [randomPref, setRandomPref] = useState(false);
   const [numOfQuestions, setNumOfQuestions] = useState(0);
   const [allCustomQuestions, setAllCustomQuestions] = useState([]);
   const [isDone, setIsDone] = useState(true);
@@ -52,8 +54,16 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType }) => {
 
   return (
     <div className="relative flex text-center flex-col bg-indigo-100 shadow-[0_0_20px_rgba(99,102,241,0.8)] mx-auto px-3 py-6 md:px-10 md:py-8 mt-10 rounded-xl w-[min(90%,700px)] h-[min(auto,700px)]">
-      <h1 className="text-5xl lg:text-7xl tracking-tight mb-5 text-gradient">QUIZ</h1>
-      <button onClick={() => setIsDone(true)} className="x-btn">
+      <h1 className="text-5xl md:text-7xl tracking-tight mb-5 text-gradient">
+        QUIZz<span className="text-[2rem] md:text-5xl">z</span>
+      </h1>
+      <button
+        onClick={() => {
+          setRandomPref(false);
+          setIsDone(true);
+        }}
+        className="x-btn"
+      >
         X
       </button>
       <hr className="h-0.5 bg-black border-0 rounded-2xl" />
@@ -111,12 +121,19 @@ const ChooseQuestions = ({ setCustomQuestions, setQuestionsType }) => {
       )}
       {isDone ?
         <>
-          <button onClick={() => setIsDone(false)} className="button mt-10 md:text-2xl">
+          <button
+            onClick={() => setIsDone(false)}
+            className="button mt-10 text-[calc(1rem+0.5vw)] md:text-2xl :hover"
+          >
             Custom Quiz
           </button>
-          <button onClick={() => setQuestionsType("random")} className="button mt-3 md:text-2xl">
+          <button
+            onClick={() => setRandomPref(true)}
+            className={`button mt-3 text-[calc(1rem+0.5vw)] md:text-2xl ${randomPref ? "bg-indigo-400 border-2 border-indigo-900" : ""}`}
+          >
             Random Quiz
           </button>
+          {randomPref && <RandomPref setQuestionsType={setQuestionsType} setQuestionsApi={setQuestionsApi} />}
         </>
       : <>
           <button

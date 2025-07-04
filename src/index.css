@@ -26,7 +26,7 @@ html {
 }
 
 @utility error-msg {
-  @apply text-start mb-[-3px] text-indigo-600 text-[calc(0.7rem+0.5vw)] md:text-lg font-bold;
+  @apply text-start mb-[-3px] text-indigo-800 text-[calc(0.9rem+0.5vw)] md:text-xl font-bold;
 }
 
 @utility input-f {

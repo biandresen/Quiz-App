@@ -6,8 +6,6 @@ import "./index.css";
 import ChooseQuestions from "./components/ChooseQuestions";
 import formatQuestions from "./formatQuestions";
 
-const QUESTIONS_API = "https://opentdb.com/api.php?amount=10";
-
 function App() {
   const [questionsType, setQuestionsType] = useState(null);
   const [customQuestions, setCustomQuestions] = useState([]);
@@ -16,6 +14,7 @@ function App() {
   const [seeResult, setSeeResult] = useState(false);
   const [score, setScore] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [questionsApi, setQuestionsApi] = useState("https://opentdb.com/api.php?amount=5");
 
   const resetQuiz = () => {
     setQuestionsType(null);
@@ -39,7 +38,7 @@ function App() {
 
   const fetchRandomQuestions = async () => {
     try {
-      const res = await fetch(QUESTIONS_API);
+      const res = await fetch(questionsApi);
       if (!res.ok) throw new Error("Error fetching random questions");
       const data = await res.json();
       const formattedQuestions = formatQuestions(data);
@@ -60,7 +59,11 @@ function App() {
   return (
     <>
       {!questionTypeIsSelected && (
-        <ChooseQuestions setCustomQuestions={setCustomQuestions} setQuestionsType={setQuestionsType} />
+        <ChooseQuestions
+          setCustomQuestions={setCustomQuestions}
+          setQuestionsType={setQuestionsType}
+          setQuestionsApi={setQuestionsApi}
+        />
       )}
       {questionTypeIsSelected && seeResult && (
         <QuizResult setSeeResult={setSeeResult} score={score} resetQuiz={resetQuiz} />
